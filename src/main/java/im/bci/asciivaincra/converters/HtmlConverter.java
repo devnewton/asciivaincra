@@ -1,6 +1,6 @@
-package im.bci.a2html.converters;
+package im.bci.asciivaincra.converters;
 
-import im.bci.a2html.frontend.ConversionType;
+import im.bci.asciivaincra.frontend.ConversionType;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Entities;

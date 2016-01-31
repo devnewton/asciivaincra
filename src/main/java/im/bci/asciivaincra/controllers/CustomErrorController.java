@@ -1,4 +1,4 @@
-package im.bci.a2html.controllers;
+package im.bci.asciivaincra.controllers;
 
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import im.bci.a2html.frontend.ErrorMV;
+import im.bci.asciivaincra.frontend.ErrorMV;
 
 /**
  *

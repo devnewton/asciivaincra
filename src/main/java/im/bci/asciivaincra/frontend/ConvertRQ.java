@@ -1,4 +1,4 @@
-package im.bci.a2html.frontend;
+package im.bci.asciivaincra.frontend;
 
 import java.io.Serializable;
 

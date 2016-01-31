@@ -1,4 +1,4 @@
-package im.bci.a2html.controllers;
+package im.bci.asciivaincra.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/")
-public class A2htmlController {
+public class IndexController {
 
     @RequestMapping("")
     public String index(Model model) {

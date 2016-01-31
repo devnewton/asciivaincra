@@ -7,9 +7,9 @@
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.3.2.RELEASE</version>
     </parent>
-    <artifactId>a2html</artifactId>
+    <artifactId>asciivaincra</artifactId>
     <groupId>im.bci</groupId>
-    <name>a2html</name>
+    <name>asciivaincra</name>
     <description>convert text to ascii html</description>
     <version>1.0-SNAPSHOT</version>
     <url>http://devnewton.bci.im</url>
@@ -68,7 +68,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>im.bci.a2html.A2htmlApplication</mainClass>
+                    <mainClass>im.bci.asciivaincra.AsciiVaincraApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>

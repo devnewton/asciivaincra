@@ -1,4 +1,4 @@
-package im.bci.a2html;
+package im.bci.asciivaincra;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -11,7 +11,7 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 @Configuration
 @EnableAutoConfiguration
 @ComponentScan
-public class A2htmlApplication implements CommandLineRunner {
+public class AsciiVaincraApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
@@ -27,6 +27,6 @@ public class A2htmlApplication implements CommandLineRunner {
     }
 
     public static void main(String[] args) throws Exception {
-        SpringApplication.run(A2htmlApplication.class, args);
+        SpringApplication.run(AsciiVaincraApplication.class, args);
     }
 }
