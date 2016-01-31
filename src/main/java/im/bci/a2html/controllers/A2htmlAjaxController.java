@@ -1,5 +1,6 @@
 package im.bci.a2html.controllers;
 
+import im.bci.a2html.converters.Converter;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document.OutputSettings;
 import org.jsoup.nodes.Entities.EscapeMode;
@@ -11,16 +12,26 @@ import org.springframework.web.bind.annotation.RestController;
 
 import im.bci.a2html.frontend.ConvertMV;
 import im.bci.a2html.frontend.ConvertRQ;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.unbescape.java.JavaEscape;
+import org.unbescape.java.JavaEscapeLevel;
 
 @RestController
 @RequestMapping("/ajax")
 public class A2htmlAjaxController {
 
+    @Autowired
+    private Converter[] converters;
+
     @RequestMapping(value = "/convert", method = RequestMethod.POST)
     public ConvertMV convert(ConvertRQ rq, Model model) {
         ConvertMV mv = new ConvertMV();
-        String cleaned = Jsoup.clean(rq.getText(), "", Whitelist.basic(), new OutputSettings().prettyPrint(false).escapeMode(EscapeMode.extended).charset("ASCII"));
-        mv.setConvertedText(cleaned);
+        for (Converter converter : converters) {
+            if (rq.getConversion() == converter.getType()) {
+                mv.setConvertedText(converter.convert(rq.getText()));
+                break;
+            }
+        }
         return mv;
     }
 

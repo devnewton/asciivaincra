@@ -1,19 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>a2html</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex,nofollow">
-<link rel="icon" type="image/png" href="/favicon.png">
-</head>
-<body>
-	<label for="input">Input:</label>
-	<textarea id="input" rows="20" cols="80"></textarea>
-	<input id="convert" type="button" value="Convert">
-	<label for="output">Output</label>
-	<textarea id="output" rows="20" cols="80"></textarea>
-	<script src="/webjars/jquery/3.0.0-alpha1/jquery.js" defer></script>
-	<script src="/a2html.js" defer></script>
-</body>
+    <head>
+        <title>a2html</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="robots" content="noindex,nofollow">
+        <link rel="icon" type="image/png" href="/favicon.png">
+    </head>
+    <body>
+        <label for="conversion">Conversion:</label>
+        <select id="conversion" name="conversion">
+            <optgroup label="Web">
+                <option value="TO_HTML">to html</option>
+                <option value="TO_CSS">to css</option>
+            </optgroup>
+            <optgroup label="Programming">
+                <option value="TO_JAVA">to java</option>
+                <option value="TO_JAVASCRIPT">to javascript</option>
+            </optgroup>
+            <optgroup label="Data">
+                <option value="TO_JSON">to json</option>
+                <option value="TO_PROPERTIES">to properties</option>
+                <option value="TO_TXT">to text</option>
+            </optgroup>
+        </select>
+        <input id="convert" type="button" value="Convert">
+        <label for="input">Input:</label>
+        <textarea id="input" rows="20" cols="80"></textarea>
+        <label for="output">Output</label>
+        <textarea id="output" rows="20" cols="80"></textarea>
+        <script src="/webjars/jquery/3.0.0-alpha1/jquery.js" defer></script>
+        <script src="/a2html.js" defer></script>
+    </body>
 </html>
