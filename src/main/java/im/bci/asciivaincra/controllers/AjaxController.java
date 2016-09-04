@@ -1,10 +1,6 @@
 package im.bci.asciivaincra.controllers;
 
 import im.bci.asciivaincra.converters.Converter;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document.OutputSettings;
-import org.jsoup.nodes.Entities.EscapeMode;
-import org.jsoup.safety.Whitelist;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,8 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 import im.bci.asciivaincra.frontend.ConvertMV;
 import im.bci.asciivaincra.frontend.ConvertRQ;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.unbescape.java.JavaEscape;
-import org.unbescape.java.JavaEscapeLevel;
 
 @RestController
 @RequestMapping("/ajax")

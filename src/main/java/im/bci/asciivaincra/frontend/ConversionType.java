@@ -11,5 +11,6 @@ public enum ConversionType {
     TO_JAVASCRIPT,
     TO_JSON,
     TO_PROPERTIES,
+    TO_SLUG,
     TO_TXT
 }
