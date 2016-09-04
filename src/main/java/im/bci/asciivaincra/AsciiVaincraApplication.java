@@ -15,7 +15,7 @@ public class AsciiVaincraApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        System.out.println("Launch passgrid.");
+        System.out.println("Ascii vaincra!");
     }
 
     @Bean

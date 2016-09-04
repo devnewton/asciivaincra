@@ -6,35 +6,51 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
 <link rel="icon" type="image/png" href="/favicon.png">
+<link rel="stylesheet" type="text/css"
+	href="/webjars/blaze/2.12.0/dist/blaze.min.css">
+<link rel="stylesheet" type="text/css" href="/asciivaincra.css">
 </head>
-<body>
-	<label for="conversion">Conversion:</label>
-	<select id="conversion" name="conversion">
-		<optgroup label="Web">
-			<option value="TO_HTML">to html</option>
-			<option value="TO_CSS">to css</option>
-			<option value="TO_SLUG">to slug</option>
-		</optgroup>
-		<optgroup label="Programming">
-			<option value="TO_JAVA">to java</option>
-			<option value="TO_JAVASCRIPT">to javascript</option>
-		</optgroup>
-		<optgroup label="Data">
-			<option value="TO_JSON">to json</option>
-			<option value="TO_PROPERTIES">to properties</option>
-			<option value="TO_TXT">to text</option>
-		</optgroup>
-	</select>
-	<input id="convert" type="button" value="Convert">
-	<fieldset>
-		<legend>Input : </legend>
-		<textarea id="input" rows="20" cols="80"></textarea>
-	</fieldset>
-	<fieldset>
-		<legend>Output : </legend>
-		<textarea id="output" rows="20" cols="80"></textarea>
-	</fieldset>
-	<script src="/webjars/jquery/3.0.0-alpha1/jquery.js" defer></script>
+<body class="c-text">
+	<header>
+		<div class="u-letter-box--medium u-centered">
+			<h1 class="c-heading c-heading--large u-window-box--none">
+				<img src="/asciivaincra.png" alt="Ascii vaincra!"></img>
+			</h1>
+		</div>
+	</header>
+	<main class="o-container o-container--large u-letter-box--medium">
+	<div class="c-input-group">
+		<button class="c-button c-button--primary" id="convert">Convert</button>
+		<select class="c-choice c-field" id="conversion" name="conversion">
+			<optgroup label="Web">
+				<option value="TO_HTML">to html</option>
+				<option value="TO_CSS">to css</option>
+				<option value="TO_SLUG">to slug</option>
+			</optgroup>
+			<optgroup label="Programming">
+				<option value="TO_JAVA">to java</option>
+				<option value="TO_JAVASCRIPT">to javascript</option>
+			</optgroup>
+			<optgroup label="Data">
+				<option value="TO_JSON">to json</option>
+				<option value="TO_PROPERTIES">to properties</option>
+				<option value="TO_TXT">to text</option>
+			</optgroup>
+		</select>
+	</div>
+	<div
+		class="o-grid o-grid--xsmall-full o-grid--small-full o-grid--medium-full">
+		<fieldset class="c-fieldset">
+			<legend class="c-fieldset__legend">Input</legend>
+			<textarea class="c-field" id="input" rows="20" cols="80"></textarea>
+		</fieldset>
+		<fieldset class="c-fieldset">
+			<legend class="c-fieldset__legend">Output</legend>
+			<textarea class="c-field" id="output" rows="20" cols="80"></textarea>
+		</fieldset>
+	</div>
+	</main>
+	<script src="/webjars/jquery/3.0.0/jquery.js" defer></script>
 	<script src="/asciivaincra.js" defer></script>
 </body>
 </html>
