@@ -1,86 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.3.2.RELEASE</version>
-	</parent>
+
+	<groupId>fr.devnewton</groupId>
 	<artifactId>asciivaincra</artifactId>
-	<groupId>im.bci</groupId>
-	<name>asciivaincra</name>
-	<description>convert text to ascii html</description>
 	<version>1.0-SNAPSHOT</version>
-	<url>http://devnewton.bci.im</url>
+
+	<packaging>war</packaging>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<flavour.version>0.1.0</flavour.version>
+		<teavm.version>0.5.1</teavm.version>
+		<jackson.version>2.5.4</jackson.version>
 	</properties>
+
 	<dependencies>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
+			<groupId>org.teavm</groupId>
+			<artifactId>teavm-classlib</artifactId>
+			<version>${teavm.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>pl.allegro.tech.boot</groupId>
-			<artifactId>handlebars-spring-boot-starter</artifactId>
-			<version>0.2.8</version>
+			<groupId>org.teavm</groupId>
+			<artifactId>teavm-metaprogramming-impl</artifactId>
+			<version>${teavm.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.teavm.flavour</groupId>
+			<artifactId>teavm-flavour-widgets</artifactId>
+			<version>${flavour.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.jsoup</groupId>
-			<artifactId>jsoup</artifactId>
-			<version>1.8.3</version>
+			<groupId>org.teavm.flavour</groupId>
+			<artifactId>teavm-flavour-rest</artifactId>
+			<version>${flavour.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>${jackson.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.unbescape</groupId>
 			<artifactId>unbescape</artifactId>
-			<version>1.1.2.RELEASE</version>
+			<version>1.1.6.RELEASE</version>
 		</dependency>
 		<dependency>
-			<groupId>com.moparisthebest</groupId>
+			<groupId>net.gcardone.junidecode</groupId>
 			<artifactId>junidecode</artifactId>
-			<version>0.1.1</version>
-		</dependency>
-		<dependency>
-			<groupId>com.github.slugify</groupId>
-			<artifactId>slugify</artifactId>
-			<version>2.1.6</version>
-		</dependency>
-		<dependency>
-			<groupId>org.webjars</groupId>
-			<artifactId>jquery</artifactId>
-			<version>3.0.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.webjars.npm</groupId>
-			<artifactId>blaze</artifactId>
-			<version>2.12.0</version>
+			<version>0.4.1</version>
 		</dependency>
 	</dependencies>
+
 	<build>
-		<resources>
-			<resource>
-				<directory>src/main/resources</directory>
-				<filtering>false</filtering>
-				<includes>
-					<include>**/*.html</include>
-					<include>**/*.properties</include>
-					<include>**/*.xml</include>
-					<include>**/*.js</include>
-					<include>**/*.css</include>
-					<include>**/*.png</include>
-				</includes>
-			</resource>
-		</resources>
 		<plugins>
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
 				<configuration>
-					<mainClass>im.bci.asciivaincra.AsciiVaincraApplication</mainClass>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
 				</configuration>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<webResources>
+						<resource>
+							<directory>${project.build.directory}/generated/js</directory>
+						</resource>
+					</webResources>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.teavm</groupId>
+				<artifactId>teavm-maven-plugin</artifactId>
+				<version>${teavm.version}</version>
+				<executions>
+					<execution>
+						<id>web-client</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+						<configuration>
+							<targetDirectory>${project.build.directory}/generated/js/teavm</targetDirectory>
+							<mainClass>fr.devnewton.AsciiVaincra</mainClass>
+							<minifying>true</minifying>
+							<debugInformationGenerated>true</debugInformationGenerated>
+							<sourceMapsGenerated>true</sourceMapsGenerated>
+							<sourceFilesCopied>true</sourceFilesCopied>
+							<optimizationLevel>ADVANCED</optimizationLevel>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
+
 </project>

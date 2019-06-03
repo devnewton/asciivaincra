@@ -1,0 +1,32 @@
+<div>
+	<div class="c-input-group">
+		<select class="c-choice c-field" html:value="conversion"
+			html:change="conversion">
+			<optgroup label="Web">
+				<option value="html">to html</option>
+				<option value="css">to css</option>
+			</optgroup>
+			<optgroup label="Programming">
+				<option value="java">to java</option>
+				<option value="javascript">to javascript</option>
+			</optgroup>
+			<optgroup label="Data">
+				<option value="json">to json</option>
+				<option value="properties">to properties</option>
+				<option value="text">to text</option>
+			</optgroup>
+		</select>
+	</div>
+	<div
+		class="o-grid o-grid--xsmall-full o-grid--small-full o-grid--medium-full">
+		<fieldset class="c-fieldset">
+			<legend class="c-fieldset__legend">Input</legend>
+			<textarea html:value="source" html:change="source" class="c-field"
+				rows="20" cols="80"></textarea>
+		</fieldset>
+		<fieldset class="c-fieldset">
+			<legend class="c-fieldset__legend">Output</legend>
+			<textarea html:value="converted" class="c-field" rows="20" cols="80"></textarea>
+		</fieldset>
+	</div>
+</div>
